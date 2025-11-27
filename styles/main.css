@@ -1,0 +1,244 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Anti-Gravity Animations */
+@keyframes float-1 {
+
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+
+  50% {
+    transform: translateY(-20px) rotate(5deg);
+  }
+}
+
+@keyframes float-2 {
+
+  0%,
+  100% {
+    transform: translateY(0px) translateX(0px);
+  }
+
+  50% {
+    transform: translateY(-15px) translateX(10px);
+  }
+}
+
+@keyframes float-3 {
+
+  0%,
+  100% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.animate-float-1 {
+  animation: float-1 6s ease-in-out infinite;
+}
+
+.animate-float-2 {
+  animation: float-2 8s ease-in-out infinite;
+}
+
+.animate-float-3 {
+  animation: float-3 7s ease-in-out infinite;
+}
+
+/* Running Border Animation */
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.profile-container {
+  position: relative;
+  z-index: 0;
+  border-radius: 9999px;
+  padding: 6px;
+  /* Width of the border */
+  overflow: hidden;
+}
+
+.profile-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(transparent,
+      #FF63A6,
+      #FFC700,
+      #6A4CFF,
+      transparent 30%);
+  animation: spin 4s linear infinite;
+  z-index: -1;
+}
+
+.profile-inner {
+  border-radius: 9999px;
+  background: white;
+  /* Match background to hide the center of gradient */
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.dark .profile-inner {
+  background: #121212;
+}
+
+
+/* Glassmorphism utilities */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.dark .glass-panel {
+  background: rgba(26, 26, 26, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Typography Overrides */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Inter', sans-serif;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #2d2d2d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+
+/* Global Cursor Fix */
+a,
+button,
+.btn,
+[role="button"],
+input[type="submit"],
+input[type="button"] {
+  cursor: pointer !important;
+}
+
+/* Tab Styles */
+.tab-btn {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  color: #FF63A6;
+  /* Primary Color */
+  font-weight: 700;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background-color: #FF63A6;
+  border-radius: 2px;
+}
+
+.tab-content {
+  display: none;
+  animation: fadeIn 0.5s ease;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Skill Card Hover Effect */
+.skill-card {
+  transition: all 0.3s ease;
+}
+
+.skill-card:hover {
+  background-color: #FF63A6;
+  color: white;
+  transform: translateY(-5px);
+  border-color: #FF63A6;
+}
+
+.skill-card:hover h4 {
+  color: white !important;
+}
+
+/* Bento Grid Styles */
+.bento-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Modal Styles */
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+}
