@@ -194,7 +194,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Contact Form Submission
     // Replace 'YOUR_SCRIPT_URL_HERE' with your Google Apps Script Web App URL
-    const GOOGLE_SCRIPT_URL = 'YOUR_SCRIPT_URL_HERE';
+    const GOOGLE_SCRIPT_URL = 'CONNECTING_FORM';
 
     const contactForm = document.getElementById('contact-form');
     const formMessage = document.getElementById('form-message');
